@@ -30,4 +30,15 @@
       <td><input class="input" type="text" formControlName="address" value="{{userData['address']}}"/></td>
     </tr>
   </table>
+  <table>
+    <tr>
+      <td>
+          <span class="edit" [routerLink]="['/users-list/']">
+            <button type="button" class="cancelButton buttonFrm">cancel</button>
+          </span>
+          <button type="button" (click)="onSubmit()" class="saveButton buttonFrm">Save</button>
+      </td>      
+    </tr>    
+  </table>
+  
 </div>

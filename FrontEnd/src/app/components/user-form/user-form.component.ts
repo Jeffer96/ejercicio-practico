@@ -12,6 +12,11 @@ import { User } from '../../model/user';
 export class UserFormComponent implements OnInit {
   saved = false;
   userData = {};
+  mode = "C";
+  strMsg = "";
+  errorShow = false;
+  alert = "";
+  alertShow = false;
   
   constructor(private apiService: ApiService, private router: Router, private activeRt: ActivatedRoute) {
   }
@@ -49,17 +54,32 @@ export class UserFormComponent implements OnInit {
         age: data[0]["age"]
       });**/
       this.userData = data[0];
+      this.mode = "M";
     })
   }
 
   onSubmit() {
-    this.saved = true;
-    this.apiService.addUser(this.userFrm.value).subscribe((ans) => {
-      console.log('Data persisted...');
-      this.userFrm.reset();
-    }, (error) => {
-        console.log(error);
-      })
+    if (this.userFrm.valid) {
+      if (this.mode == "C") {
+        this.apiService.addUser(this.userFrm.value).subscribe((ans) => {
+          console.log('Data persisted...');
+          this.saved = true;
+          this.userFrm.reset();
+        }, (error) => {
+          console.log(error);
+        })
+      } else {
+        let id = this.activeRt.snapshot.paramMap.get("id");
+        this.apiService.updateUser(id, this.userFrm.value).subscribe(data => {
+          this.alert = "User " + this.userFrm.value["cc"] + " Was updated Succesfully!";
+          this.alertShow = true;
+        })
+      }
+    } else {
+      this.strMsg = "the form values are not valid, check again!"
+      this.errorShow = true;
+    }
+    
   }
 
 }

@@ -24,8 +24,13 @@ export class ApiService {
   }
 
   getUserById(id) {
-    let urlGet = this.baseUrl + '/getUser/' + id
+    let urlGet = this.baseUrl + '/getUser/' + id;
     return this.http.get(urlGet, { headers: this.headers });
+  }
+
+  updateUser(id, data) {
+    let url = this.baseUrl + '/updateUser/' + id;
+    return this.http.put(url, data, { headers: this.headers })
   }
 
 }
