@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,16 @@ export class ApiService {
 
   addUser(data: any) {
     return this.http.post(this.baseUrl + '/addUser', { data });
+  }
+
+  deleteUser(id) {
+    let urlDel = this.baseUrl + '/deleteUser/' + id;
+    return this.http.delete(urlDel, { headers: this.headers });
+  }
+
+  getUserById(id) {
+    let urlGet = this.baseUrl + '/getUser/' + id
+    return this.http.get(urlGet, { headers: this.headers });
   }
 
 }

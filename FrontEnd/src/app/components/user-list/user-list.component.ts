@@ -20,6 +20,12 @@ export class UserListComponent implements OnInit {
     })
   }
 
+  deleteUser(usr,id) {
+    this.apiService.deleteUser(usr._id).subscribe((data) => {
+      this.Users.splice(id, 1);
+    });
+  }
+
   ngOnInit() {
   }
 

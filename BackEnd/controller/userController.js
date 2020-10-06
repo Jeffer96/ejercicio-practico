@@ -1,6 +1,7 @@
 const express = require('express');
 const userRoute = express.Router();
 
+
 // Get the user data template and structure
 let User = require('../models/User');
 
@@ -60,7 +61,8 @@ userRoute.route('/').get(function (reqst, resp, callback) {
 
 //Add the controller to get specified function
 userRoute.route('/getUser/:id').get(function (reqst, resp, callback) {
-    User.find(reqst.params.id, function (error, data) {
+    console.log("Id of user: " + reqst.params.id);
+    User.find({ _id : reqst.params.id }, function (error, data) {
         if (error) {
             console.log("Error getting User: "+error);
             return callback(error);

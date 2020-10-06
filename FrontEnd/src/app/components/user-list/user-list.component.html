@@ -17,9 +17,9 @@
        <th (click)="showFilter6()">email <input type="text" class="hiddeable" *ngIf="show6" /></th>
        <th (click)="showFilter7()">Address <input type="text" class="hiddeable" *ngIf="show7" /></th>
      </tr>
-     <tr class="content" *ngFor="let user of Users; let id=ind">
+     <tr class="content" *ngFor="let user of Users; let ind=index">
        <td>
-         <button type="button" class="buttDetele" (click)="deleteUser(user._id)">Delete</button>
+         <button type="button" class="buttDetele" (click)="deleteUser(user,ind)">Delete</button>
        </td>
        <td>
          <span class="edit" [routerLink]="['/edit-user/',user._id]">
