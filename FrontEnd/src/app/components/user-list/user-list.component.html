@@ -1,0 +1,39 @@
+<div class="listCont">
+   <table class="navBar">
+     <tr>
+       <td>Lines per page:</td><td><input type="text" (keyup)="valideKey($event)" /></td>
+     </tr>
+   </table>
+   <table class="mainList" *ngIf="Users.length > 0">
+     <tr class="headerList">
+       <th>Delete User</th>
+       <th>Edit User</th>
+       <th>User Id</th>
+       <th (click)="showFilter1()">User Document <input type="text" class="hiddeable" *ngIf="show1" /></th>
+       <th (click)="showFilter2()">First Names <input type="text" class="hiddeable" *ngIf="show2" /></th>
+       <th (click)="showFilter3()">Last Names <input type="text" class="hiddeable" *ngIf="show3" /></th>
+       <th (click)="showFilter4()">Age <input type="text" class="hiddeable" *ngIf="show4" /></th>
+       <th (click)="showFilter5()">CellPhone <input type="text" class="hiddeable" *ngIf="show5" /></th>
+       <th (click)="showFilter6()">email <input type="text" class="hiddeable" *ngIf="show6" /></th>
+       <th (click)="showFilter7()">Address <input type="text" class="hiddeable" *ngIf="show7" /></th>
+     </tr>
+     <tr class="content" *ngFor="let user of Users; let id=ind">
+       <td>
+         <button type="button" class="buttDetele" (click)="deleteUser(user._id)">Delete</button>
+       </td>
+       <td>
+         <span class="edit" [routerLink]="['/edit-user/',user._id]">
+           <button type="button" class="buttEdit">Edit</button>
+         </span>
+       </td>
+       <td>{{user._id}}</td>
+       <td>{{user.cc}}</td>
+       <td>{{user.firstNames}}</td>
+       <td>{{user.lastNames}}</td>
+       <td>{{user.age}}</td>
+       <td>{{user.cellPhone}}</td>
+       <td>{{user.email}}</td>
+       <td>{{user.address}}</td>
+     </tr>
+   </table>
+</div>

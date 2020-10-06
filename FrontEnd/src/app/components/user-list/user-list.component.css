@@ -1,0 +1,48 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.listCont{
+  width: 80%;
+  margin-left: 10%;
+  height: 80%;
+}
+
+.mainList {
+  width: 100%;
+}
+
+.headerList {
+  background-color: #001644;
+}
+
+th {
+  font-family: Arial Black;
+  font-size: 1em;
+  color: white;
+}
+
+td {
+  font-family: Arial;
+}
+
+.buttEdit {
+  width:100%;
+  border-width: 0px;
+  background-color: #eefff8;
+  border-radius: 1px 1px 1px 1px;
+  color: green;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buttDetele {
+  width: 100%;
+  border-width: 0px;
+  background-color: #ffd7d7;
+  border-radius: 1px 1px 1px 1px;
+  color: darkred;
+  text-align: center;
+  cursor: pointer;
+}
