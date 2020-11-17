@@ -6,8 +6,17 @@
            <button type="button" class="buttAdd">+</button>
          </span>
        </td>
-       <td class="Col5">Lines x page:</td><td style="width:5%"><input type="text" (keyup)="setLinesXPage($event)" size="5"/></td>
-       <td><span class="ir" [routerLink]="['/users-list/',currentPage,linesXpage]">Set</span></td>
+       <td class="Col5">Lines x page:</td><td style="width:5%">
+        <input type="text" (keyup)="setLinesXPage($event)" size="5" value="{{linesXpage}}"/>
+       </td>
+       <td>
+        <span class="ir" [routerLink]="['/users-list/',currentPage,linesXpage]">Set</span>
+       </td>
+       <td>
+         <span class="smallBton" [routerLink]="['/users-list/',currentPage,linesXpage,-1]"><</span>
+         <input type="text" readonly style="width:5%;text-align:center" size="5"value="{{currentPage}}"/>
+         <span class="smallBton" [routerLink]="['/users-list/',currentPage,linesXpage,1]">></span>
+       </td>
      </tr>
    </table>
    <table class="mainList" >

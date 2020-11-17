@@ -102,6 +102,14 @@ td {
   width: 8%;
 }
 
+.smallBton {
+  background-color: #c2c2c2;
+  font-family: Arial Black;
+  border-radius: 0.2em;
+  padding: 0.2em;
+  cursor: pointer;
+}
+
 .ir {
   padding: 0.2em;
   font-family: Arial;

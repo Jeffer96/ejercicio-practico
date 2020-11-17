@@ -22,7 +22,15 @@ export class UserListComponent implements OnInit {
   readUsers() {
     this.apiService.getUsers().subscribe((data) => {
       //console.log(Object.values(data).length);
+      if (this.currentPage < 1) {
+        this.currentPage = 1;
+      }
+      
       let refArray = Object.values(data);
+      let maxPages = this.topInt(refArray.length / this.linesXpage);
+      if (maxPages < this.currentPage) {
+        this.currentPage = maxPages;
+      }
       if (this.linesXpage < refArray.length) {
         let startingData = (this.currentPage - 1) * this.linesXpage;
         let endingData = (this.currentPage * this.linesXpage);
@@ -48,18 +56,28 @@ export class UserListComponent implements OnInit {
     console.log("Initiating list...");
     /**this.currentPage = this.toInt(this.activeRt.snapshot.paramMap.get("page"),1);
     this.linesXpage = this.toInt(this.activeRt.snapshot.paramMap.get("lxp"),10);**/
-    
+    this.currentPage = 1;
     this.activeRt.params.subscribe(routeParams => {
-      this.currentPage = routeParams["page"];
-      this.linesXpage = routeParams["lxp"];
+      let pageInd = this.toInt(routeParams["pi"], 0);
+      this.currentPage = this.toInt(routeParams["page"], 1) + pageInd;
+      this.linesXpage = this.toInt(routeParams["lxp"],1);
       this.readUsers();
     });
     this.readUsers();
   }
 
+  topInt(param: number) {
+    let top = Math.round(param);
+    if (param > top) {
+      top = top + 1;
+    }
+    return top;
+  }
+
   toInt(param: string, reseteable: number) {
     try {
-      return parseInt(param);
+      let resp = isNaN(parseInt(param)) ? 0 : parseInt(param);
+      return resp;
     } catch (e) {
       console.log("Error converting "+param+" to integer: "+e);
       return reseteable;

@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'users-list', component: UserListComponent },
   { path: 'create-user', component: UserFormComponent },
   { path: 'edit-user/:id', component: UserFormComponent },
-  { path: 'users-list/:page/:lxp', component: UserListComponent }
+  { path: 'users-list/:page/:lxp', component: UserListComponent },
+  { path: 'users-list/:page/:lxp/:pi', component: UserListComponent }
 ];
 
 @NgModule({
