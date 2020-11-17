@@ -1,10 +1,16 @@
 <div class="listCont">
    <table class="navBar">
      <tr>
-       <td>Lines per page:</td><td><input type="text" (keyup)="valideKey($event)" /></td>
+       <td>
+         <span class="add" [routerLink]="['/create-user/']">
+           <button type="button" class="buttAdd">+</button>
+         </span>
+       </td>
+       <td class="Col5">Lines x page:</td><td style="width:5%"><input type="text" (keyup)="setLinesXPage($event)" size="5"/></td>
+       <td><span class="ir" [routerLink]="['/users-list/',currentPage,linesXpage]">Set</span></td>
      </tr>
    </table>
-   <table class="mainList" *ngIf="Users.length > 0">
+   <table class="mainList" >
      <tr class="headerList">
        <th>Delete User</th>
        <th>Edit User</th>
@@ -17,7 +23,7 @@
        <th (click)="showFilter6()">email <input type="text" class="hiddeable" *ngIf="show6" /></th>
        <th (click)="showFilter7()">Address <input type="text" class="hiddeable" *ngIf="show7" /></th>
      </tr>
-     <tr class="content" *ngFor="let user of Users; let ind=index">
+     <tr class="content" *ngFor="let user of Users; let ind=index" >
        <td>
          <button type="button" class="buttDetele" (click)="deleteUser(user,ind)">Delete</button>
        </td>

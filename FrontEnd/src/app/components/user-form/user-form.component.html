@@ -1,44 +1,45 @@
-<div class="centerPane">
-  <input class="input" type="hidden" formControlName="_id" value="{{userData['_id']}}"/>
+<div class="centerPane form-group">
+  <input type="hidden" class="formControl input" [(ngModel)]="currentUser._id" />
   <table>
     <tr>
       <td class="label">Identity Document:</td>
-      <td><input class="input" type="text" formControlName="cc" value="{{userData['cc']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.cc" /></td>
     </tr>
     <tr>
       <td class="label">First Names:</td>
-      <td><input class="input" type="text" formControlName="firstNames" value="{{userData['firstNames']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.firstNames" /></td>
     </tr>
     <tr>
       <td class="label">Last Names:</td>
-      <td><input class="input" type="text" formControlName="lastNames" value="{{userData['lastNames']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.lastNames" /></td>
     </tr>
     <tr>
       <td class="label">Age</td>
-      <td><input class="input" type="text" formControlName="age" value="{{userData['age']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.age" /></td>
     </tr>
     <tr>
       <td class="label">Email</td>
-      <td><input class="input" type="text" formControlName="email" value="{{userData['email']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.email" /></td>
     </tr>
     <tr>
       <td class="label">CellPhone</td>
-      <td><input class="input" type="text" formControlName="cellPhone" value="{{userData['cellPhone']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.cellPhone" /></td>
     </tr>
     <tr>
       <td class="label">Adress</td>
-      <td><input class="input" type="text" formControlName="address" value="{{userData['address']}}"/></td>
+      <td><input type="text" class="formControl input" [(ngModel)]="currentUser.address" /></td>
     </tr>
   </table>
   <table>
     <tr>
       <td>
           <span class="edit" [routerLink]="['/users-list/']">
-            <button type="button" class="cancelButton buttonFrm">cancel</button>
+            <button type="button" class="cancelButton buttonFrm">Volver</button>
           </span>
           <button type="button" (click)="onSubmit()" class="saveButton buttonFrm">Save</button>
       </td>      
     </tr>    
   </table>
-  
+  <h1 *ngIf="errorShow" class="red">{{strMsg}}</h1>
+  <h1 *ngIf="alertShow" class="green">{{alert}}</h1>
 </div>

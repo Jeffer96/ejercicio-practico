@@ -18,4 +18,6 @@ let User = new SchemaObj(
         collection: 'users'
     });
 
+mongObj.set('useFindAndModify', false);
+
 module.exports = mongObj.model('User', User);

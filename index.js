@@ -43,7 +43,8 @@ console.log("Getting the string connection to db: " + dbConn.strConn);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConn.strCon, {
-    useNewUrlParser : true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then(function () {
     console.log('Connection successfully...');
 }).catch(function (error) {

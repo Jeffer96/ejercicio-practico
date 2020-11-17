@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'users-list' },
   { path: 'users-list', component: UserListComponent },
   { path: 'create-user', component: UserFormComponent },
-  { path: 'edit-user/:id', component: UserFormComponent}
+  { path: 'edit-user/:id', component: UserFormComponent },
+  { path: 'users-list/:page/:lxp', component: UserListComponent }
 ];
 
 @NgModule({

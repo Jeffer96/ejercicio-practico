@@ -7,11 +7,12 @@ let User = require('../models/User');
 
 //Add the route (action) of /addUser to add an User
 userRoute.post('/addUser', function (reqst, resp, callback) {
-    console.log("Add user -> id: " + JSON.stringify(reqst.body));
-    User.create(reqst.body, function (error, data){
+    console.log("Add user -> Object: " + JSON.stringify(reqst.body));
+    User.create(reqst.body.data, function (error, data) {
         if (error) {
             console.log("Error Adding User: " + error);
-            return callback("Error Adding User: " + error);
+            return false;
+            //return callback("Error Adding User: " + error);
         } else {
             console.log("Data persisted succesfully...");
             resp.json(data);
@@ -30,10 +31,11 @@ userRoute.route('/updateUser/:id').put(function (reqst, resp, callback) {
         age: bodyCon.age,
         email: bodyCon.email,
         address: bodyCon.address,
+        cellPhone: bodyCon.cellPhone,
         urlPhoto: bodyCon.urlPhoto
     }
 
-    //console.log("Updating: "+idD);
+    console.log("Updating: " + idD + " : " + JSON.stringify(jsonObj));
 
     User.findByIdAndUpdate(idD, jsonObj , function (error, data) {
         if (error) {

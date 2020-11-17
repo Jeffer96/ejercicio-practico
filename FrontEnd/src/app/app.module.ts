@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { FormsModule } from '@angular/forms';
 
 import { ApiService } from './service/api.service';
 
@@ -17,6 +18,7 @@ import { ApiService } from './service/api.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

@@ -50,3 +50,15 @@ table {
 .cancelButton:hover {
   background-image: linear-gradient(#810000,#a50000);
 }
+
+.red {
+  width: 100%;
+  text-align: center;
+  color: darkred;
+}
+
+.green {
+  width: 100%;
+  text-align: center;
+  color:green;
+}
