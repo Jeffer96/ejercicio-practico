@@ -1,4 +1,4 @@
-<div class="centerPane form-group">
+<div id="formRoot" class="centerPane form-group">
   <input type="hidden" class="formControl input" [(ngModel)]="currentUser._id" />
   <table>
     <tr>
@@ -38,8 +38,12 @@
           </span>
           <button type="button" (click)="onSubmit()" class="saveButton buttonFrm">Save</button>
       </td>      
-    </tr>    
+    </tr>
+    <tr>
+      <td colspan="3"><button type="button" (click)="printPdfUser()" class="saveButton buttonFrm">view pdf</button></td>
+    </tr>
   </table>
   <h1 *ngIf="errorShow" class="red">{{strMsg}}</h1>
   <h1 *ngIf="alertShow" class="green">{{alert}}</h1>
 </div>
+

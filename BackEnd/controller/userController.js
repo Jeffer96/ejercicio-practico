@@ -75,8 +75,8 @@ userRoute.route('/getUser/:id').get(function (reqst, resp, callback) {
     })
 });
 
-userRoute.route('/getUsersLikeName/:paramName').get(function (reqst, resp, callback)){
-    User.find().$where({ firstNames: /retst.params.paramName/ }, function (error, data) {
+userRoute.route('/getUsersLikeName/:paramName').get(function (reqst, resp, callback) {
+    User.find({ firstNames: /retst.params.paramName/ }, function (error, data) {
         if (error) {
             console.log("Errog Getting users with requested name");
             return false;
@@ -85,7 +85,7 @@ userRoute.route('/getUsersLikeName/:paramName').get(function (reqst, resp, callb
             resp.json(data);
         }
     })
-}
+});
 
 //Add the controller to deleted specified user
 userRoute.route('/delete/:id').delete(function (reqst, resp, callback) {

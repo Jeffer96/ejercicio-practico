@@ -17,10 +17,16 @@
          <input type="text" readonly style="width:5%;text-align:center" size="5"value="{{currentPage}}"/>
          <span class="smallBton" [routerLink]="['/users-list/',currentPage,linesXpage,1]">></span>
        </td>
+       <td style="display: flex">
+         <input type="text" (keyup) ="setNameFilter($event)" size="25" value="{{filterName}}"/>
+         <p>|</p>
+         <span class="ir" [routerLink]="['/users-list/',filterName,1]">Search</span>
+       </td>
      </tr>
    </table>
    <table class="mainList" >
      <tr class="headerList">
+       <th>view pdf</th>
        <th>Delete User</th>
        <th>Edit User</th>
        <th>User Id</th>
@@ -32,7 +38,12 @@
        <th (click)="showFilter6()">email <input type="text" class="hiddeable" *ngIf="show6" /></th>
        <th (click)="showFilter7()">Address <input type="text" class="hiddeable" *ngIf="show7" /></th>
      </tr>
-     <tr class="content" *ngFor="let user of Users; let ind=index" >
+     <tr class="content" *ngFor="let user of Users; let ind=index">
+       <td>
+         <span class="edit" [routerLink]="['/edit-user/',user._id,P]">
+           <button type="button" class="buttEdit">view pdf</button>
+         </span>
+       </td>
        <td>
          <button type="button" class="buttDetele" (click)="deleteUser(user,ind)">Delete</button>
        </td>

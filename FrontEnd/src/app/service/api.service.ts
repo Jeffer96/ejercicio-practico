@@ -15,6 +15,10 @@ export class ApiService {
     return this.http.get(this.baseUrl + '/');
   }
 
+  getUsersByFilter(param: string) {
+    return this.http.get(this.baseUrl + '/getUsersLikeName/' + param);
+  }
+
   addUser(data: any) {
 
     return this.http.post(this.baseUrl + '/addUser', { data });
