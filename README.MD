@@ -1,26 +1,15 @@
-# ejercicio-practico
-repositorio para aplicacion de prueba para consorcio cutub minar
-repositorio de Request Postman:
-  https://www.getpostman.com/collections/7003ab112ee3dbe84050
-Estructura Json de la base de datos
-[
-    {
-        "_id": "5f7bc2bf77d86235ec5c756a",
-        "cc": 1010226725,
-        "firstNames": "Jefferson David",
-        "lastNames": "Casta√±eda Carre√±o",
-        "age": 25,
-        "__v": 0
-    },
-    {
-        "_id": "5f7c0065e6454938a4eee0f6",
-        "cc": 123456789,
-        "firstNames": "User Test",
-        "lastNames": "Cutub Minar",
-        "age": 25,
-        "email": "test@test.com",
-        "address": "Calle 50 # 25 - 18",
-        "cellPhone": 123456789,
-        "__v": 0
-    }
-]
+GITHUB: https://github.com/Jeffer96/ejercicio-practico
+EN LA CARPETA FRONTEND SE ENCUENTRA LA APLICACION ANGULAR
+EN LA CARPETA BACKEND SE ENCUENTRA LA CONFIGURACION BASICA DEL BACKEND
+ADJUNTO ARCHIVO BSON - Y COLECCION POSTMAN
+NO PUDE TRABAJAR EN EL OTRO FORK (FRONEND) PUES GITHUB ME SACO UN ERROR Y TRATE DE CORREGIRLO PERO SE ME FUE EL TIEMPO
+
+AGRADEZCO SU ATENCION Y DE ANTEMANO SU APOYO AL PERMITIRME PRESENTAR DE NUEVO LA PRUEBA
+
+CORDIALMENTE;
+
+JEFFERSON DAVID CASTA—EDA CARRE—O
+ING SISTEMAS
+1010226725
+3222112589
+7589670
